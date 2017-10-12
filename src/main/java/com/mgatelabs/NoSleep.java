@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Calendar;
 
 
@@ -58,9 +59,12 @@ public class NoSleep extends Thread {
                 robot.delay(DELAY);
             }
 
-            logger.info("Moving Mouse-Wheel: " + (up ? "Up" : "Down"));
+            logger.info("Sending Tab");
 
-            robot.mouseWheel( up ? 1 : -1);
+            robot.keyPress(KeyEvent.VK_TAB);
+
+            robot.keyPress(KeyEvent.VK_LEFT);
+
             up = !up;
         }
     }
